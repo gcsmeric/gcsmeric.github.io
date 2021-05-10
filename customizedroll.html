@@ -1,0 +1,43 @@
+<html>
+   <head>
+       <link rel="stylesheet" type="text/css" href="stylesheetcustomizedroll.css" />
+       <title>Dice Roll</title>
+  </head>
+    <body>
+        <div class="navbar">
+            <a href="coinflip.html">coinflip</a>
+            <a href="uhh.html">dice roll</a>
+            <a href="customizedroll.html" id="activepage">customized roll</a>
+            <a href="percent.html">random percentage</a>
+            <div class="dropdown">
+    <button class="dropbtn">about 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="creator.html">creator</a>
+      <a href="contact.html">contact</a>
+    </div>
+  </div> 
+        </div>
+        <div>
+            <h1 id="heading">
+                Random Number Generation 
+            </h1>
+        </div>
+        <div id="container1">
+        </div>
+    <div>
+       <p id="proll">Roll a number between 1 and <input id="number"/></p>
+        <p id="demo"> ?</p>
+
+<button id="buttons" type="buttons" class="buttons" onclick="myFunction()">roll</button>
+
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = Math.floor(Math.random() * document.getElementById("number").value)+1;;
+}
+</script>
+        </div>
+    </body>
+</html>
+

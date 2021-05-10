@@ -1,12 +1,12 @@
 <html>
    <head>
        <link rel="stylesheet" type="text/css" href="stylesheetofwebsite.css" />
-       <title>Coinflip</title>
+       <title>Dice Roll</title>
   </head>
     <body>
         <div class="navbar">
-            <a href="coinflip.html" id="activepage">coinflip</a>
-            <a href="uhh.html">dice roll</a>
+            <a href="coinflip.html">coinflip</a>
+            <a href="uhh.html" id="activepage">dice roll</a>
             <a href="customizedroll.html">customized roll</a>
             <a href="percent.html">random percentage</a>
             <div class="dropdown">
@@ -29,28 +29,12 @@
     <div>
        <p id="demo">?</p>
 
-<button id="buttons" type="buttons" class="buttons" onclick="myFunction()">flip</button>
+<button id="buttons" type="buttons" class="buttons" onclick="myFunction()">roll</button>
 
 <script>
 function myFunction() {
-    var number, headsortails;
-    number = Math.floor(Math.random() * 2)
-    headsortails = (number < 0.5) ? "heads":"tails";
-    document.getElementById("demo").innerHTML = headsortails;
+    document.getElementById("demo").innerHTML = Math.floor(Math.random() * 6)+1;;
 }
-    
-if (number = 1) {
-    document.getElementById("demo").innerHTML = "heads";
-}
-
-else if (number = 0) {
-    document.getElementById("demo").innerHTML = "tails";
-}
-    
-/*else if (number != 0,1) {
-     document.getElementById("demo").innerHTML = "?";
-}*/ 
-
 </script>
         </div>
     </body>
