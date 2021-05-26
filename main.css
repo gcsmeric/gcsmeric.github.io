@@ -3,13 +3,13 @@
 }
 
 .gmheader {
-    background-color: #333;
+    /*background-color: #333;*/
     overflow: hidden;
 }
 
 .gmheader a {
     float: left;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -18,17 +18,17 @@
 
 .gmheader a:hover {
     background-color: #4CAF50;
-    color: black;
-}
-
-#demo   {
-    margin-left: 0.5%;
-}
-
-#heading    {
-    position: absolute; visibility: visible; left: 65.6%; top: -1%; height: 3%; z-index: 2000;
-    border-radius: 5px;
     color: white;
+}
+
+#hireme {
+  float: right;
+  border: 1px solid black;
+  font-size: 17px;
+}
+
+#hireme:hover {
+  background-color: black;
 }
 
 #buttons {
@@ -58,6 +58,14 @@ outline: none;
 border: none;
 }
 button:focus {outline:0;}
+
+#dividerline {
+  position: relative;
+  width: calc(100%-1px);
+  height: -4px;
+  border-bottom: 1px solid;
+  color: black;
+}
 
 .dropdown {
   float: left;
