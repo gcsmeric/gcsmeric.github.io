@@ -93,6 +93,18 @@
   padding-right: 25%;
 }
 
+#emaildiv {
+  padding-top: 2.5%;
+  padding-left: 8%;
+}
+#email {
+  color: black;
+  font-size: 19px;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+  padding-bottom: 1.5px;
+}
+
 #buttons {
     background-color: #4CAF50; 
     border: none;
