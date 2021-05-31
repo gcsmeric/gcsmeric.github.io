@@ -170,22 +170,79 @@
         return grid;
       }
 
-      function isValid(grid, row, col, x) {
+      /*function isValid(grid, row, col, x) {
     for (var j = 0; j < 9; j++) {
         var sqrow = 3 * Math.floor(row / 3) + Math.floor(j / 3);
         var sqcol = 3 * Math.floor(col / 3) + j % 3;
         if (grid[row][j] == x || grid[j][col] == x || grid[sqrow][sqcol] == x) return false;
         }
     return true;
+    }*/
+    /*function isValid(board, row, col, k) {
+    for (let i = 0; i < 9; i++) {
+        const m = 3 * Math.floor(row / 3) + Math.floor(i / 3);
+        const n = 3 * Math.floor(col / 3) + i % 3;
+        if (board[row][i] == k || board[i][col] == k || board[m][n] == k) {
+          return false;
+        }
+    }
+    return true;
+}*/
+    function isValid(grid, row, col, x) {
+		return (rowvalid(grid, row, col, x) && colvalid(grid, row, col, x) && squarevalid(grid, row, col, x));
     }
 
+    function rowvalid(grid, row, col, x) {
+		for (var i=0; i<9; i++) {
+			if (i == col) {
+				continue;
+			}
+			if (grid[row][i]==x) {
+				return false;
+			}
+		}
+		return true;
+	}
+	function colvalid(grid, row, col, x) {
+		for (var i=0; i<9; i++) {
+			if (i == row) {
+				continue;
+			}
+			if (grid[i][col]==x) {
+				return false;
+			}
+		}
+		return true;
+	}
+    function squarevalid(grid, row, col, x) {
+		var sqxcoord = Math.floor(col/3)+1;
+		var sqycoord = Math.floor(row/3)+1;
+		var sqymax = (sqycoord)*3-1;
+		var sqymin = (sqycoord-1)*3;
+		var sqxmax = (sqxcoord)*3-1;
+		var sqxmin = (sqxcoord-1)*3;
+		var xcoord;
+		for (xcoord=sqxmin; xcoord<=sqxmax; xcoord++) {
+			var ycoord;
+			for (ycoord=sqymin; ycoord<=sqymax; ycoord++) {
+				if (xcoord==col && ycoord==row) {
+					continue;
+				}
+				if (grid[ycoord][xcoord] == x) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
     function solve(grid) {
-        alert('starting solve');
 		for (var row = 0; row <9; row++) {
 			for (var col = 0; col < 9; col++) {
 				if (grid[row][col] == 0) {
 					for (var x = 1; x <= 9; x++) {
 						grid[row][col]=x;
+                        var bool = isValid(grid, row, col, x);
 						if (isValid(grid, row, col, x) && solve(grid)) {
 							return true;
 						}
