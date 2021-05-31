@@ -51,7 +51,7 @@
                     <div class="proj1content">
                         I developed a sudoku solver in Java, using a recursive backtracking algorithm to solve any 3x3 sudoku.
                     </div>
-                        <table>
+                        <table id="inputsudoku">
                             <caption>Input Sudoku</caption>
                           <colgroup><col><col><col></colgroup>
                           <colgroup><col><col><col></colgroup>
@@ -69,24 +69,42 @@
                             <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
                             <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
                         </table>
-                        <table>
+                        <table id="outputsudoku">
+                            <caption>Output Sudoku</caption>
+                          <colgroup><col><col><col></colgroup>
+                          <colgroup><col><col><col></colgroup>
+                          <colgroup><col><col><col></colgroup>
+                          <tbody>
+                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                          <tbody>
+                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                          <tbody>
+                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                        </table>
+                        <!--<table id="outputsudoku">
                             <caption>Output Solution</caption>
                             <colgroup><col><col><col></colgroup>
                             <colgroup><col><col><col></colgroup>
                             <colgroup><col><col><col></colgroup>
                             <tbody>
-                              <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                              <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                              <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                                <tr> <td class="cell"><j id="outputcell"></j></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td>
+                                <tr> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td>
+                                <tr> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td>
                             <tbody>
-                              <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                              <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                              <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                                <tr> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td>
+                                <tr> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td>
+                                <tr> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td>
                             <tbody>
-                              <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                              <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                              <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                          </table>
+                                <tr> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td>
+                                <tr> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td>
+                                <tr> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td> <td class="cell"><p id="outputcell"></p></td>  <td class="cell"><p id="outputcell"></p></td>
+                          </table>-->
                         <div>
                             <script>
     function getInput3() {
@@ -96,7 +114,36 @@
       var col = 80 % 9;
       var bool = (num=='');
 
-      alert('Third input is ' + num + row + col + bool);
+      alert('fourth input is ' + num + row + col + bool);
+    }
+
+    function test() {
+        var allInputs = document.getElementsByTagName('input');
+        allInputs.item(3).value = 2;
+        for (var k=81; k<81*2; k++) {
+            allInputs.item(k).value = 2;
+        }
+    }
+
+    function test3() {
+        var grid = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+        fillgrid(grid);
+        var bool = grid[3][0]==0;
+        alert('first input is ' + grid[0][0]);
+        alert('fourth input is ' + grid[0][3]);
+        alert(bool);
+        grid[0][3]=4;
+        alert('fourth input is ' + grid[0][3]);
     }
 
     var grid = [
@@ -125,19 +172,20 @@
 
       function isValid(grid, row, col, x) {
     for (var j = 0; j < 9; j++) {
-        const sqrow = 3 * Math.floor(row / 3) + Math.floor(j / 3);
-        const sqcol = 3 * Math.floor(col / 3) + j % 3;
-        if (board[row][j] == x || grid[j][col] == x || grid[sqrow][sqcol] == x) return false;
+        var sqrow = 3 * Math.floor(row / 3) + Math.floor(j / 3);
+        var sqcol = 3 * Math.floor(col / 3) + j % 3;
+        if (grid[row][j] == x || grid[j][col] == x || grid[sqrow][sqcol] == x) return false;
         }
     return true;
     }
 
     function solve(grid) {
-		for (var row = 0; row <N; row++) {
-			for (var col = 0; col < N; col++) {
+        alert('starting solve');
+		for (var row = 0; row <9; row++) {
+			for (var col = 0; col < 9; col++) {
 				if (grid[row][col] == 0) {
 					for (var x = 1; x <= 9; x++) {
-						grid[row][col] = x;
+						grid[row][col]=x;
 						if (isValid(grid, row, col, x) && solve(grid)) {
 							return true;
 						}
@@ -163,13 +211,30 @@
     [0, 0, 0, 0, 0, 0, 0, 0, 0]
     ];
         fillgrid(grid);
+        alert('solving');
         solve(grid);
+        alert('solved');
+        var allOutputs = document.getElementsByTagName('input');
+        alert('filling');
+        for (var k=81; k<81*2; k++) {
+            var row = Math.floor((k-81)/9);
+            var col = (k-81) % 9;
+            allOutputs.item(k).value = grid[row][col];
+        }
+    }
+
+    function test2() {
+        var allOutputs = document.getElementsByTagName('input');
+        for (var k=81; k<81*2; k++) {
+            allOutputs.item(k).value = k;
+        }
     }
     
     </script>
             <button onclick="getInput3();">
                 show input 3</button><br />
-                <button onclick="getInput3();">What is the time?</button>
+                <button onclick="test3();">test</button>
+                <button onclick="solvefinal();">solve</button>
                         </div>
                 </div>
             </div>
