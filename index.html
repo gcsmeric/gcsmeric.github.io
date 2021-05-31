@@ -268,11 +268,8 @@
     [0, 0, 0, 0, 0, 0, 0, 0, 0]
     ];
         fillgrid(grid);
-        alert('solving');
         solve(grid);
-        alert('solved');
         var allOutputs = document.getElementsByTagName('input');
-        alert('filling');
         for (var k=81; k<81*2; k++) {
             var row = Math.floor((k-81)/9);
             var col = (k-81) % 9;
@@ -288,9 +285,6 @@
     }
     
     </script>
-            <button onclick="getInput3();">
-                show input 3</button><br />
-                <button onclick="test3();">test</button>
                 <button onclick="solvefinal();">solve</button>
                         </div>
                 </div>
