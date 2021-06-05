@@ -50,42 +50,52 @@
                     <a class="closepopup" href="#projects">&times;</a>
                     <div class="proj1content">
                         I developed a sudoku solver in Java, using a recursive backtracking algorithm to solve any 3x3 sudoku.
+                        This program was converted to javascript and implemented below for you to try. 
                     </div>
                         <table id="inputsudoku">
-                            <caption>Input Sudoku</caption>
+                            <caption>
+                                Input Sudoku<c class="info">&#x1F6C8;
+                                    <span class="extra-info">
+                                      Enter numbers into the input sudoku in desired positions, leave the rest of squares blank or fill them with 0s. Press solve to obtain a completed sudoku.
+                                    </span>
+                                </c><br />
+                            </caption>
                           <colgroup><col><col><col></colgroup>
                           <colgroup><col><col><col></colgroup>
                           <colgroup><col><col><col></colgroup>
                           <tbody>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>
                           <tbody>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>
                           <tbody>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>
+                            <tr> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td> <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>  <td class="cell"><input type="text" maxlength="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></td>
                         </table>
+                        <div id="solvediv">
+                            <button onclick="solvefinal();" class="solvedbutton">solve</button>
+                        </div>
                         <table id="outputsudoku">
                             <caption>Output Sudoku</caption>
                           <colgroup><col><col><col></colgroup>
                           <colgroup><col><col><col></colgroup>
                           <colgroup><col><col><col></colgroup>
                           <tbody>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td>
+                            <tr> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td>
+                            <tr> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td>
                           <tbody>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td>
+                            <tr> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td>
+                            <tr> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td>
                           <tbody>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
-                            <tr> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td> <td class="cell"><input type="text" maxlength="1"></td>  <td class="cell"><input type="text" maxlength="1"></td>
+                            <tr> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td>
+                            <tr> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td>
+                            <tr> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td> <td class="cell"><input disabled type="number" maxlength="1"></td>  <td class="cell"><input disabled type="number" maxlength="1"></td>
                         </table>
                         <!--<table id="outputsudoku">
                             <caption>Output Solution</caption>
@@ -107,185 +117,187 @@
                           </table>-->
                         <div>
                             <script>
-    function getInput3() {
-        var allInputs = document.getElementsByTagName('input');
-      var num = allInputs.item(3).value;
-      var row = Math.floor(80/9);
-      var col = 80 % 9;
-      var bool = (num=='');
+                                function getInput3() {
+                                    var allInputs = document.getElementsByTagName('input');
+                                var num = allInputs.item(3).value;
+                                var row = Math.floor(80/9);
+                                var col = 80 % 9;
+                                var bool = (num=='');
 
-      alert('fourth input is ' + num + row + col + bool);
-    }
+                                alert('fourth input is ' + num + row + col + bool);
+                                }
 
-    function test() {
-        var allInputs = document.getElementsByTagName('input');
-        allInputs.item(3).value = 2;
-        for (var k=81; k<81*2; k++) {
-            allInputs.item(k).value = 2;
-        }
-    }
+                                function test() {
+                                    var allInputs = document.getElementsByTagName('input');
+                                    allInputs.item(3).value = 2;
+                                    for (var k=81; k<81*2; k++) {
+                                        allInputs.item(k).value = 2;
+                                    }
+                                }
 
-    function test3() {
-        var grid = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-        fillgrid(grid);
-        var bool = grid[3][0]==0;
-        alert('first input is ' + grid[0][0]);
-        alert('fourth input is ' + grid[0][3]);
-        alert(bool);
-        grid[0][3]=4;
-        alert('fourth input is ' + grid[0][3]);
-    }
+                                function test3() {
+                                    var grid = [
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0]
+                            ];
+                                    fillgrid(grid);
+                                    var bool = grid[3][0]==0;
+                                    alert('first input is ' + grid[0][0]);
+                                    alert('fourth input is ' + grid[0][3]);
+                                    alert(bool);
+                                    grid[0][3]=4;
+                                    alert('fourth input is ' + grid[0][3]);
+                                }
 
-    var grid = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0]
-]
-      function fillgrid(grid) {
-        
-        var allInputs = document.getElementsByTagName('input');
-        for (var i=0; i<81; i++) {
-            var x = allInputs.item(i).value;
-            if (x=='') x=0;
-            var row = Math.floor(i/9);
-            var col = i % 9;
-            grid[row][col]=x;
-        }
-        return grid;
-      }
+                                var grid = [
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0]
+                            ]
+                                function fillgrid(grid) {
+                                    
+                                    var allInputs = document.getElementsByTagName('input');
+                                    for (var i=0; i<81; i++) {
+                                        var x = allInputs.item(i).value;
+                                        if (x=='') x=0;
+                                        var row = Math.floor(i/9);
+                                        var col = i % 9;
+                                        grid[row][col]=x;
+                                    }
+                                    return grid;
+                                }
 
-      /*function isValid(grid, row, col, x) {
-    for (var j = 0; j < 9; j++) {
-        var sqrow = 3 * Math.floor(row / 3) + Math.floor(j / 3);
-        var sqcol = 3 * Math.floor(col / 3) + j % 3;
-        if (grid[row][j] == x || grid[j][col] == x || grid[sqrow][sqcol] == x) return false;
-        }
-    return true;
-    }*/
-    /*function isValid(board, row, col, k) {
-    for (let i = 0; i < 9; i++) {
-        const m = 3 * Math.floor(row / 3) + Math.floor(i / 3);
-        const n = 3 * Math.floor(col / 3) + i % 3;
-        if (board[row][i] == k || board[i][col] == k || board[m][n] == k) {
-          return false;
-        }
-    }
-    return true;
-}*/
-    function isValid(grid, row, col, x) {
-		return (rowvalid(grid, row, col, x) && colvalid(grid, row, col, x) && squarevalid(grid, row, col, x));
-    }
+                                /*function isValid(grid, row, col, x) {
+                                for (var j = 0; j < 9; j++) {
+                                    var sqrow = 3 * Math.floor(row / 3) + Math.floor(j / 3);
+                                    var sqcol = 3 * Math.floor(col / 3) + j % 3;
+                                    if (grid[row][j] == x || grid[j][col] == x || grid[sqrow][sqcol] == x) return false;
+                                    }
+                                return true;
+                                }*/
+                                /*function isValid(board, row, col, k) {
+                                for (let i = 0; i < 9; i++) {
+                                    const m = 3 * Math.floor(row / 3) + Math.floor(i / 3);
+                                    const n = 3 * Math.floor(col / 3) + i % 3;
+                                    if (board[row][i] == k || board[i][col] == k || board[m][n] == k) {
+                                    return false;
+                                    }
+                                }
+                                return true;
+                            }*/
+                                function isValid(grid, row, col, x) {
+                                    return (rowvalid(grid, row, col, x) && colvalid(grid, row, col, x) && squarevalid(grid, row, col, x));
+                                }
 
-    function rowvalid(grid, row, col, x) {
-		for (var i=0; i<9; i++) {
-			if (i == col) {
-				continue;
-			}
-			if (grid[row][i]==x) {
-				return false;
-			}
-		}
-		return true;
-	}
-	function colvalid(grid, row, col, x) {
-		for (var i=0; i<9; i++) {
-			if (i == row) {
-				continue;
-			}
-			if (grid[i][col]==x) {
-				return false;
-			}
-		}
-		return true;
-	}
-    function squarevalid(grid, row, col, x) {
-		var sqxcoord = Math.floor(col/3)+1;
-		var sqycoord = Math.floor(row/3)+1;
-		var sqymax = (sqycoord)*3-1;
-		var sqymin = (sqycoord-1)*3;
-		var sqxmax = (sqxcoord)*3-1;
-		var sqxmin = (sqxcoord-1)*3;
-		var xcoord;
-		for (xcoord=sqxmin; xcoord<=sqxmax; xcoord++) {
-			var ycoord;
-			for (ycoord=sqymin; ycoord<=sqymax; ycoord++) {
-				if (xcoord==col && ycoord==row) {
-					continue;
-				}
-				if (grid[ycoord][xcoord] == x) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
+                                function rowvalid(grid, row, col, x) {
+                                    for (var i=0; i<9; i++) {
+                                        if (i == col) {
+                                            continue;
+                                        }
+                                        if (grid[row][i]==x) {
+                                            return false;
+                                        }
+                                    }
+                                    return true;
+                                }
+                                function colvalid(grid, row, col, x) {
+                                    for (var i=0; i<9; i++) {
+                                        if (i == row) {
+                                            continue;
+                                        }
+                                        if (grid[i][col]==x) {
+                                            return false;
+                                        }
+                                    }
+                                    return true;
+                                }
+                                function squarevalid(grid, row, col, x) {
+                                    var sqxcoord = Math.floor(col/3)+1;
+                                    var sqycoord = Math.floor(row/3)+1;
+                                    var sqymax = (sqycoord)*3-1;
+                                    var sqymin = (sqycoord-1)*3;
+                                    var sqxmax = (sqxcoord)*3-1;
+                                    var sqxmin = (sqxcoord-1)*3;
+                                    var xcoord;
+                                    for (xcoord=sqxmin; xcoord<=sqxmax; xcoord++) {
+                                        var ycoord;
+                                        for (ycoord=sqymin; ycoord<=sqymax; ycoord++) {
+                                            if (xcoord==col && ycoord==row) {
+                                                continue;
+                                            }
+                                            if (grid[ycoord][xcoord] == x) {
+                                                return false;
+                                            }
+                                        }
+                                    }
+                                    return true;
+                                }
 
-    function solve(grid) {
-		for (var row = 0; row <9; row++) {
-			for (var col = 0; col < 9; col++) {
-				if (grid[row][col] == 0) {
-					for (var x = 1; x <= 9; x++) {
-						grid[row][col]=x;
-                        var bool = isValid(grid, row, col, x);
-						if (isValid(grid, row, col, x) && solve(grid)) {
-							return true;
-						}
-						grid[row][col] = 0;
-					}
-					return false;
-				}
-			}
-		}
-		return true;
-    }
+                                function solve(grid) {
+                                    for (var row = 0; row <9; row++) {
+                                        for (var col = 0; col < 9; col++) {
+                                            if (grid[row][col] == 0) {
+                                                for (var x = 1; x <= 9; x++) {
+                                                    grid[row][col]=x;
+                                                    var bool = isValid(grid, row, col, x);
+                                                    if (isValid(grid, row, col, x) && solve(grid)) {
+                                                        return true;
+                                                    }
+                                                    grid[row][col] = 0;
+                                                }
+                                                return false;
+                                            }
+                                        }
+                                    }
+                                    alert('no sol');
+                                    return true;
+                                }
 
-    function solvefinal() {
-        var grid = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    ];
-        fillgrid(grid);
-        solve(grid);
-        var allOutputs = document.getElementsByTagName('input');
-        for (var k=81; k<81*2; k++) {
-            var row = Math.floor((k-81)/9);
-            var col = (k-81) % 9;
-            allOutputs.item(k).value = grid[row][col];
-        }
-    }
+                                function solvefinal() {
+                                    var grid = [
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0]
+                                ];
+                                    fillgrid(grid);
+                                    alert('filled');
+                                    solve(grid);
+                                    alert('solved');
+                                    var allOutputs = document.getElementsByTagName('input');
+                                    for (var k=81; k<81*2; k++) {
+                                        var row = Math.floor((k-81)/9);
+                                        var col = (k-81) % 9;
+                                        allOutputs.item(k).value = grid[row][col];
+                                    }
+                                }
 
-    function test2() {
-        var allOutputs = document.getElementsByTagName('input');
-        for (var k=81; k<81*2; k++) {
-            allOutputs.item(k).value = k;
-        }
-    }
-    
-    </script>
-                <button onclick="solvefinal();">solve</button>
+                                function test2() {
+                                    var allOutputs = document.getElementsByTagName('input');
+                                    for (var k=81; k<81*2; k++) {
+                                        allOutputs.item(k).value = k;
+                                    }
+                                }
+                                
+                                </script>
                         </div>
                 </div>
             </div>
