@@ -79,6 +79,7 @@
                         <div id="solvediv">
                             <button onclick="solvefinal();" class="solvedbutton">solve</button>
                         </div>
+                        <!--use https://stackoverflow.com/questions/7853130/how-to-change-the-style-of-alert-box-->
                         <table id="outputsudoku">
                             <caption>Output Sudoku</caption>
                           <colgroup><col><col><col></colgroup>
@@ -262,7 +263,6 @@
                                             }
                                         }
                                     }
-                                    alert('no sol');
                                     return true;
                                 }
 
@@ -279,9 +279,17 @@
                                 [0, 0, 0, 0, 0, 0, 0, 0, 0]
                                 ];
                                     fillgrid(grid);
-                                    alert('filled');
+                                    //check if initial input is solvable
+                                    for (var a=0;a<9;a++) {
+                                        for (var b=0;b<9;b++) {
+                                            if (grid[a][b]==0 || isValid(grid, a, b, grid[a][b])) continue;
+                                            else {
+                                                alert('the inputted sudoku is not solvable; check to make sure there are no repititions in each row, column or box');
+                                                return 1;
+                                            }
+                                        }
+                                    }
                                     solve(grid);
-                                    alert('solved');
                                     var allOutputs = document.getElementsByTagName('input');
                                     for (var k=81; k<81*2; k++) {
                                         var row = Math.floor((k-81)/9);
