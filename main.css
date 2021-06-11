@@ -213,6 +213,18 @@ input {
   text-align: center;
 }
 
+#chessboard {
+  margin: auto;
+}
+
+#white {
+  background-color: lightgray;
+}
+
+#black {
+  background-color: gray;
+}
+
 
 .popup h2 {
   margin-top: 0;
