@@ -316,9 +316,260 @@
                         <tr> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  
                         <tr> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> 
                     </table>
+                    <!-- use https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_str_fontcolor so use id demo on squares instead of input-->
                     <script>
+                        var board = [
+                                ['R2', 'N2', 'B2', 'Q2', 'K2', 'B2', 'N2', 'R2'],
+                                ['P2', 'P2', 'P2', 'P2', 'P2', 'P2', 'P2', 'P2'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['P1', 'P1', 'P1', 'P1', 'P1', 'P1', 'P1', 'P1'],
+                                ['R1', 'N1', 'B1', 'Q1', 'K1', 'B1', 'N1', 'R1'],
+                            ];
+
+                            function setboard(board) {
+                                var allInputs = document.getElementsByTagName('input');
+                                for (var i = 162; i<162+64; i++) {
+                                    var j = i-162;
+                                    var row = Math.floor(j/8);
+                                    var col = j % 8;
+                                    allInputs.item(i).value = converttostring(board[row][col]);
+                                }
+                            }
+
+                            function converttostring(str) {
+                                if (str=="x") return "";
+                                var finstr = str.charAt(0);
+                                if (str.charAt(1)=='1') var fstr = finstr.toUpperCase();
+                                else {
+                                    var fstr = finstr.toLowerCase();
+                                }
+                                return fstr;
+                            }
+
+                            function isvalidmove(board, startx, starty, endx, endy, lastmove) {
+                                var piece = board[starty][startx];
+                                if (piece = "x") {
+                                    alert("there is no movable piece on this square");
+                                    return false;
+                                }
+                                var player = piece[1];
+                                var id = piece[2];
+                                if (piece[0]=="P") {
+                                    if (player=="1" && starty==7) {
+                                        if (startx==endx) {
+                                            if (endy==6 && board[endy][endx]=='x') return true;
+                                            else if (endy==5 && board[endy][endx]=='x' && board[6][endx]=='x') return true;
+                                            else return false;
+                                        }
+                                        else if (endx==startx-1 && endy==6) {
+                                            if (board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            else return false;
+                                        }
+                                        else if (endx==startx+1 && endy==6) {
+                                            if (board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            else return false;
+                                        }
+                                        else return false;
+                                    }
+                                    else if (player=="2" && starty==2) {
+                                        if (startx==endx) {
+                                            if (endy==3 && board[endy][endx]=='x') return true;
+                                            else if (endy==4 && board[endy][endx]=='x' && board[3][endx]=='x') return true;
+                                            else return false;
+                                        }
+                                        else if (endx==startx-1 && endy==3) {
+                                            if (board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            else return false;
+                                        }
+                                        else if (endx==startx+1 && endy==3) {
+                                            if (board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            else return false;
+                                        }
+                                        else return false;
+                                    }
+                                    else if (player=="1" && starty<7 && starty>1) {
+                                        if (endx==startx) {
+                                            if (endy==starty-1 && board[endy][endx]=='x') return true;
+                                            else return false;
+                                        }
+                                        else if (endx==startx+1) {
+                                            if (endy==starty-1 && board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            else return false;
+                                        }
+                                        else if (endx==startx-1) {
+                                            if (endy==starty-1 && board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            else return false;
+                                        }
+                                    }
+                                    else if (player=="2" && starty>2 && starty<8) {
+                                        if (endx==startx) {
+                                            if (endy==starty+1 && board[endy][endx]=='x') return true;
+                                            else return false;
+                                        }
+                                        else if (endx==startx+1) {
+                                            if (endy==starty+1 && board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            else return false;
+                                        }
+                                        else if (endx==startx-1) {
+                                            if (endy==starty+1 && board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            else return false;
+                                        }
+                                    }
+                                    else return false;
+                                }
+                                else if (piece[0]="R") {
+                                    if (endx==startx && endy!=starty) {
+                                        if (endy>starty) {
+                                            for (var i = starty; i<=endy; i++) {
+                                                if (i<endy) {
+                                                    if (board[i][startx]=="x") continue;
+                                                    else return false;
+                                                }
+                                                else if (i==endy) {
+                                                    if (board[endy][endx]=="x" || board[endy][endx][1]!=player) return true;
+                                                    else return false;
+                                                }
+                                            }
+                                            return true;
+                                        }
+                                        else if (endy<starty) {
+                                            for (var i = starty; i>=endy; i--) {
+                                                if (i>endy) {
+                                                    if (board[i][startx]=="x") continue;
+                                                    else return false;
+                                                }
+                                                else if (i==endy) {
+                                                    if (board[endy][endx]=="x" || board[endy][endx][1]!=player) return true;
+                                                    else return false;
+                                                }
+                                            }
+                                            return true;
+                                        }
+                                    }
+                                    else if (endx!=startx && endy==starty) {
+                                        if (endx>startx) {
+                                            for (var i = startx; i<=endx; i++) {
+                                                if (i<endx) {
+                                                    if (board[starty][i]=="x") continue;
+                                                    else return false;
+                                                }
+                                                else if (i==endx) {
+                                                    if (board[endy][endx]=="x" || board[endy][endx][1]!=player) return true;
+                                                    else return false;
+                                                }
+                                            }
+                                            return true;
+                                        }
+                                        else if (endx<startx) {
+                                            for (var i = startx; i>=endx; i--) {
+                                                if (i>endx) {
+                                                    if (board[starty][i]=="x") continue;
+                                                    else return false;
+                                                }
+                                                else if (i==endx) {
+                                                    if (board[endy][endx]=="x" || board[endy][endx][1]!=player) return true;
+                                                    else return false;
+                                                }
+                                            }
+                                            return true;
+                                        }
+                                    }
+                                    else return false;
+                                }
+                                else if (piece[0]="N") {
+                                    if (board[endy][endx]=='x' || board[endy][endx][1]!=player) {
+                                        if (endx==startx+2) {
+                                            if (endy==starty+1 || endy==starty-1) return true;
+                                            else return false;
+                                        }
+                                        if (endx==startx-2) {
+                                            if (endy==starty+1 || endy==starty-1) return true;
+                                            else return false;
+                                        }
+                                        if (endx==startx+1) {
+                                            if (endy==starty+2 || endy==starty-2) return true;
+                                            else return false;
+                                        }
+                                        if (endx==startx-1) {
+                                            if (endy==starty+2 || endy==starty-2) return true;
+                                            else return false;
+                                        }
+                                    }
+                                }
+                                else if (piece[0]="B") {
+                                    if (endx!=startx && endy!=starty) {
+                                        if (endy>starty) {
+                                            for (var i = starty; i<=endy; i++) {
+                                                if (i<endy) {
+                                                    if (board[i][startx]=="x") continue;
+                                                    else return false;
+                                                }
+                                                else if (i==endy) {
+                                                    if (board[endy][endx]=="x" || board[endy][endx][1]!=player) return true;
+                                                    else return false;
+                                                }
+                                            }
+                                            return true;
+                                        }
+                                        else if (endy<starty) {
+                                            for (var i = starty; i>=endy; i--) {
+                                                if (i>endy) {
+                                                    if (board[i][startx]=="x") continue;
+                                                    else return false;
+                                                }
+                                                else if (i==endy) {
+                                                    if (board[endy][endx]=="x" || board[endy][endx][1]!=player) return true;
+                                                    else return false;
+                                                }
+                                            }
+                                            return true;
+                                        }
+                                    }
+                                    else if (endx!=startx && endy==starty) {
+                                        if (endx>startx) {
+                                            for (var i = startx; i<=endx; i++) {
+                                                if (i<endx) {
+                                                    if (board[starty][i]=="x") continue;
+                                                    else return false;
+                                                }
+                                                else if (i==endx) {
+                                                    if (board[endy][endx]=="x" || board[endy][endx][1]!=player) return true;
+                                                    else return false;
+                                                }
+                                            }
+                                            return true;
+                                        }
+                                        else if (endx<startx) {
+                                            for (var i = startx; i>=endx; i--) {
+                                                if (i>endx) {
+                                                    if (board[starty][i]=="x") continue;
+                                                    else return false;
+                                                }
+                                                else if (i==endx) {
+                                                    if (board[endy][endx]=="x" || board[endy][endx][1]!=player) return true;
+                                                    else return false;
+                                                }
+                                            }
+                                            return true;
+                                        }
+                                    }
+                                    else return false;
+                                }
+                                }
+                                else if (piece[0]="Q") {
+
+                                }
+                                else if (piece[0]="K") {
+
+                                }
+                            }
+
                         function startgame() {
-                            var allInputs = document.getElementsByTagName('input');
+                            alert('starting');
+                            /*var allInputs = document.getElementsByTagName('input');
                             allInputs.item(162).value='r';
                             allInputs.item(162+1).value='n';
                             allInputs.item(162+2).value='b';
@@ -351,23 +602,32 @@
                             allInputs.item(162+60).value='K';
                             allInputs.item(162+61).value='B';
                             allInputs.item(162+62).value='N';
-                            allInputs.item(162+63).value='R';
-
+                            allInputs.item(162+63).value='R';*/
                             var board = [
-                                [0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0],
+                                ['R21', 'N21', 'B21', 'Q2', 'K2', 'B22', 'N22', 'R22'],
+                                ['P21', 'P22', 'P23', 'P24', 'P25', 'P26', 'P27', 'P28'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['P11', 'P12', 'P13', 'P14', 'P15', 'P16', 'P17', 'P18'],
+                                ['R11', 'N11', 'B11', 'Q1', 'K1', 'B12', 'N12', 'R12'],
                             ];
-                            
+                            var K1movecount = 0;
+                            var K2movecount = 0;
+                            var R11movecount = 0;
+                            var R12movecount = 0;
+                            var R21movecount = 0;
+                            var R22movecount = 0;
+                            var lastmove = "";
+                            alert("set");
+                            setboard(board);
                         }
 
                         function movepiece(board) {
-
+                            //if isvalidmove ...
+                            setboard(board);
+                            return lastmove;
                         }
                     </script>
                     <div id="solvediv">
