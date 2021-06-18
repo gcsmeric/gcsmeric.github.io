@@ -357,7 +357,6 @@
                                 }
                                 var player = piece[1];
                                 var id = piece[2];
-                                alert(piece[0]);
                                 if (piece[0]=="P") {
                                     if (player=="1" && starty==6) {
                                         if (startx==endx) {
@@ -866,12 +865,19 @@
                             var lastmove = "";
                             var turn = 0;
                             setboard(board);
-                            alert(board[7][1]);
-                            var bool = isvalidmove(board, 1, 7, 2, 5);
-                            alert(bool);
+                            var inputstart='';
+                            var inputend='';
                             while (true) {
                                 if (validinput()) {
-                                    var conv = convsquare();
+                                    var allInputs = document.getElementsByTagName('input');
+                                    inputstart=allInputs.item(226).value;
+                                    inputend=allInputs.item(227).value;
+                                    var convstart = convsquare(inputstart);
+                                    var convend = convsquare(inputend);
+                                    var startx = Math.floor(convstart/10);
+                                    var starty = convstart % 10;
+                                    var endx = Math.floor(convend/10);
+                                    var endy = convend % 10;
                                     //get x y start end
 
 
@@ -888,8 +894,9 @@
                         }
 
                         function movepiece(board, startx, starty, endx, endy) {
+                            /*alert('moving');
                             //remove valid check here? have it in main function maybe
-                            if (isvalidmove(boartd, startx, starty, endx, endy)) {
+                            if (isvalidmove(board, startx, starty, endx, endy)) {*/
                                 var piece = board[starty][startx];
                                 board[starty][startx]='x';
                                 board[endy][endx]=piece;
@@ -897,8 +904,11 @@
                                 var lastmove = '';
                                 //def lastmove
                                 return lastmove;
-                            }
-                            else return 'notvalid';
+                            /*}
+                            else {
+                                alert('invalid');
+                                return 'notvalid';
+                            }*/
 
                         }
                         function ischeckmate(board, turnplayer) {
@@ -917,15 +927,38 @@
                             if (col=="f") outstr+=50;
                             if (col=="g") outstr+=60;
                             if (col=="h") outstr+=70;
-                            if (col=="1") outstr+=0;
-                            if (col=="2") outstr+=1;
-                            if (col=="3") outstr+=2;
-                            if (col=="4") outstr+=3;
-                            if (col=="5") outstr+=4;
-                            if (col=="6") outstr+=5;
-                            if (col=="7") outstr+=6;
-                            if (col=="8") outstr+=7;
+                            if (row=="1") outstr+=7;
+                            if (row=="2") outstr+=6;
+                            if (row=="3") outstr+=5;
+                            if (row=="4") outstr+=4;
+                            if (row=="5") outstr+=3;
+                            if (row=="6") outstr+=2;
+                            if (row=="7") outstr+=1;
+                            if (row=="8") outstr+=0;
                             return outstr;
+                        }
+
+                        function submitmove() {
+                            var allInputs = document.getElementsByTagName('input');
+                            inputstart=allInputs.item(226).value;
+                            inputend=allInputs.item(227).value;
+                            var convstart = convsquare(inputstart);
+                            var convend = convsquare(inputend);
+                            var startx = Math.floor(convstart/10);
+                            var starty = convstart % 10;
+                            var endx = Math.floor(convend/10);
+                            var endy = convend % 10;
+                            //get x y start end
+
+
+                            //maybe use while loop here to keep getting input until valid move
+                            if (isvalidmove(board, startx, starty, endx, endy)) {
+                                movepiece(board, startx, starty, endx, endy);
+                                //wipe inputs
+                            }
+                            else {
+                                alert('invalid input squares, please try again')
+                            }
                         }
 
                     </script>
