@@ -566,24 +566,23 @@
                                     return true; 
                                 }
                                 else if (piece[0]=="K") {
-                                    if (board[endy][endx]=='x' || board[endy][endx][1]!=player) {
-                                        if (endy==starty+1) {
-                                            if (endx==startx+1 || endx==startx || endx==startx-1) return true;
-                                            else return false;
-                                        }
-                                        if (endy==starty) {
-                                            if (endx==startx+1 || endx==startx-1) return true;
-                                            else return false;
-                                        }
-                                        if (endy==starty-1) {
-                                            if (endx==startx+1 || endx==startx || endx==startx-1) return true;
-                                            else return false;
-                                        }
+                                    if (endy==starty+1) {
+                                        if (endx==startx+1 || endx==startx || endx==startx-1) return true;
+                                        else return false;
+                                    }
+                                    if (endy==starty) {
+                                        if (endx==startx+1 || endx==startx-1) return true;
+                                        else return false;
+                                    }
+                                    if (endy==starty-1) {
+                                        if (endx==startx+1 || endx==startx || endx==startx-1) return true;
+                                        else return false;
                                     }
                                 }
                             }
 
                         var turn = 0;
+                        var lastmove = '';
                         function startgame() {
                             document.getElementById("moveinput").style.display = 'block';
                             
@@ -668,6 +667,26 @@
                             }
                         }
 
+                        function copyboard(board) {
+                            var board2 = [
+                                ['R21', 'N21', 'B21', 'Q2', 'K2', 'B22', 'N22', 'R22'],
+                                ['P21', 'P22', 'P23', 'P24', 'P25', 'P26', 'P27', 'P28'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['P11', 'P12', 'P13', 'P14', 'P15', 'P16', 'P17', 'P18'],
+                                ['R11', 'N11', 'B11', 'Q1', 'K1', 'B12', 'N12', 'R12'],
+                            ];
+                            for (var i=0; i<8; i++) {
+                                for (var j=0; j<8; j++) {
+                                    board2[i][j]=board[i][j];
+                                }
+                            }
+                            return board2;
+                        }
+
+
                         function movepiece(board, startx, starty, endx, endy) {
                             /*alert('moving');
                             //remove valid check here? have it in main function maybe
@@ -686,8 +705,65 @@
                             }*/
 
                         }
-                        function ischeckmate(board, turnplayer) {
+                        function movepiecenoshow(board, startx, starty, endx, endy) {
+                            /*alert('moving');
+                            //remove valid check here? have it in main function maybe
+                            if (isvalidmove(board, startx, starty, endx, endy)) {*/
+                                var piece = board[starty][startx];
+                                board[starty][startx]='x';
+                                board[endy][endx]=piece;
+                            /*}
+                            else {
+                                alert('invalid');
+                                return 'notvalid';
+                            }*/
 
+                        }
+
+                        function ischeck(board, turnplayer) {
+                            var kingx = 0;
+                            var kingy = 0;
+                            for (var i=0; i<8; i++) {
+                                for (var j=0; j<8; j++) {
+                                    if (board[i][j][0]=='K' && board[i][j][1]==turnplayer) {
+                                        var kingx = j;
+                                        var kingy = i;
+                                    }
+                                }
+                            }
+                            for (var i=0; i<8; i++) {
+                                for (var j=0; j<8; j++) {
+                                    if (board[i][j]!='x' && board[i][j][1]!=turnplayer) {
+                                        if (isvalidmove(board, j, i, kingx, kingy)) {
+                                            return true;
+                                        }
+                                    }
+                                }
+                            }
+                            return false;
+                        }
+                        function ismate(board, turnplayer) {
+                            var board2 = copyboard(board);
+                            var boardog = copyboard(board);
+                            for (var i=0; i<8; i++) {
+                                for (var j=0; j<8; j++) {
+                                    if (board[i][j]!='x' && board[i][j][1]==turnplayer) {
+                                        for (var y=0; y<8; y++) {
+                                            for (var x=0; x<8; x++) {
+                                                if (isvalidmove(board, j, i, x, y)) {
+                                                    movepiecenoshow(board2, j, i, x, y);
+                                                    if (!(ischeck(board, turnplayer))) {
+                                                        return '';
+                                                    }
+                                                    board2 = boardog;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if (ischeck(board, turnplayer)) return 'checkmate';
+                            else return 'stalemate';
                         }
 
                         function convsquare(str) {
@@ -733,8 +809,7 @@
                                 else if (pl=="2") plint=2;
                             }
 
-                            //maybe use while loop here to keep getting input until valid move
-                            if (isvalidmove(board, startx, starty, endx, endy) && ((turn%2)+1==plint)) {
+                            /*if (isvalidmove(board, startx, starty, endx, endy) && ((turn%2)+1==plint)) {
                                 movepiece(board, startx, starty, endx, endy);
 
                                 //wipe inputs
@@ -744,12 +819,32 @@
                             }
                             else {
                                 alert('the inputted move is invalid or it is the other player\'s turn, please try again')
+                            }*/
+
+                            //maybe use while loop here to keep getting input until valid move
+                            if (isvalidmove(board, startx, starty, endx, endy) && ((turn%2)+1==plint)) {
+                                lastmove = movepiece(board, startx, starty, endx, endy);
+
+                                //wipe inputs
+                                turn+=1;
+                                allInputs.item(226).value='';
+                                allInputs.item(227).value='';
+
+                                var gameend = ismate(board, ((turn%2)+1));
+                                if (gameend == 'checkmate' || gameend == 'stalemate') {
+                                    alert(gameend+'!')
+                                    document.getElementById("moveinput").style.display = 'none';
+
+                                }
+                            }
+                            else {
+                                alert('the inputted move is invalid or it is the other player\'s turn, please try again')
                             }
                         }
 
                     </script>
                     <div id="solvediv">
-                        <button onclick="startgame();" class="solvedbutton">start game</button>
+                        <button onclick="startgame();" class="solvedbutton">start new game</button>
                     </div>
                     <div id="moveinput">Move: <input class='moveinput' maxlength=2 minlength=2 placeholder="start square">-<input class='moveinput' maxlength=2 minlength=2 placeholder="end square">
                         <button onclick="submitmove();" class="submitbutton">submit</button>
