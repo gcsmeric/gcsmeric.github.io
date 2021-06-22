@@ -271,6 +271,7 @@
                                             }
                                         }
                                     }
+                                    //solve and update output
                                     solve(grid);
                                     var allOutputs = document.getElementsByTagName('input');
                                     for (var k=81; k<81*2; k++) {
@@ -303,7 +304,7 @@
                     </h2>
                     <a class="closepopup" href="#">&times;</a>
                     <div class="proj1content">
-                        this project is a fully playable chess board.
+                        this project is a fully playable 2-player chess board, programmed in python and transitioned to javascript. The program implements more complex chess rules such as castling, promotions and en-passant, and can discern checkmate and stalemate positions, as well as forced draw scenarios.
                     </div>
                     <table id="chessboard">
                       <tbody>
@@ -316,6 +317,7 @@
                         <tr> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  
                         <tr> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> 
                     </table>
+                    <!--https://codepen.io/huffn/pen/qyYoPy-->
                     <!-- use https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_str_fontcolor so use id demo on squares instead of input-->
                     <script>
                         var board = [
@@ -398,10 +400,14 @@
                                         }
                                         else if (endx==startx+1) {
                                             if (endy==starty-1 && board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            //en passant
+                                            else if (starty==3&&endy==starty-1 && (board[endy][endx]=='x'||board[endy][endx][1]!=player)&&lastmove==endx) return true;
                                             else return false;
                                         }
                                         else if (endx==startx-1) {
                                             if (endy==starty-1 && board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            //en passant
+                                            else if (starty==3&&endy==starty-1 && (board[endy][endx]=='x'||board[endy][endx][1]!=player)&&lastmove==endx) return true;
                                             else return false;
                                         }
                                     }
@@ -412,10 +418,14 @@
                                         }
                                         else if (endx==startx+1) {
                                             if (endy==starty+1 && board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            //en passant
+                                            else if (starty==4 &&endy==starty+1 && (board[endy][endx]=='x'||board[endy][endx][1]!=player)&&lastmove==endx) return true;
                                             else return false;
                                         }
                                         else if (endx==startx-1) {
                                             if (endy==starty+1 && board[endy][endx]!="x" && board[endy][endx][1]!=player) return true;
+                                            //en passant
+                                            else if (starty==4 &&endy==starty+1 && (board[endy][endx]=='x'||board[endy][endx][1]!=player)&&lastmove==endx) return true;
                                             else return false;
                                         }
                                     }
@@ -572,17 +582,32 @@
                                     }
                                     if (endy==starty) {
                                         if (endx==startx+1 || endx==startx-1) return true;
+                                        if (endx==startx+2) {
+                                            if(piece=='K1'&&startx==4&&starty==7&&endx==6&&K1movecount==0&&R12movecount==0&&board[starty][startx+1]=='x'&&board[starty][startx+2]=='x'&&!(ischeck(board, 1))) return true;
+                                            if(piece=='K2'&&startx==4&&starty==0&&endx==6&&K2movecount==0&&R22movecount==0&&board[starty][startx+1]=='x'&&board[starty][startx+2]=='x'&&!(ischeck(board, 2))) return true;
+                                        }
+                                        if (endx==startx-2) {
+                                            if(piece=='K1'&&startx==4&&starty==7&&endx==2&&K1movecount==0&&R11movecount==0&&board[starty][startx-1]=='x'&&board[starty][startx-2]=='x'&&!(ischeck(board, 1))) return true;
+                                            if(piece=='K2'&&startx==4&&starty==0&&endx==2&&K2movecount==0&&R21movecount==0&&board[starty][startx-1]=='x'&&board[starty][startx-2]=='x'&&!(ischeck(board, 2))) return true;
+                                        }
                                         else return false;
                                     }
                                     if (endy==starty-1) {
                                         if (endx==startx+1 || endx==startx || endx==startx-1) return true;
                                         else return false;
                                     }
+                                    return false;
                                 }
                             }
 
                         var turn = 0;
                         var lastmove = '';
+                        var K1movecount = 0;
+                        var K2movecount = 0;
+                        var R11movecount = 0;
+                        var R12movecount = 0;
+                        var R21movecount = 0;
+                        var R22movecount = 0;
                         function startgame() {
                             document.getElementById("moveinput").style.display = 'block';
                             
@@ -694,8 +719,64 @@
                                 var piece = board[starty][startx];
                                 board[starty][startx]='x';
                                 board[endy][endx]=piece;
+                                if (piece[0]=='K'&&endx==startx+2) {
+                                    var rook = board[starty][7];
+                                    board[starty][5]=rook;
+                                    board[starty][7]='x';
+                                }
+                                if (piece[0]=='K'&&endx==startx-2) {
+                                    var rook = board[starty][0];
+                                    board[starty][3]=rook;
+                                    board[starty][0]='x';
+                                }
+                                if (piece[0]=='P'&&(endx==startx+1||endx==startx-1)&&lastmove==endx) {
+                                    board[starty][endx]='x';
+                                }
+                                if (piece[0]=='P'&&piece[1]=='1'&&starty==1) {
+                                    var choice = '';
+                                    while (!(choice=='queen'||choice=='rook'||choice=='knight'||choice=='bishop')) {
+                                        choice = prompt('Enter piece you want to promote to in lowercase. Options are queen, rook, bishop, knight');
+                                        if (choice=='queen') board[endy][endx]='Q1';
+                                        if (choice=='rook') board[endy][endx]='R1';
+                                        if (choice=='knight') board[endy][endx]='N1';
+                                        if (choice=='bishop') board[endy][endx]='B1';
+                                    }
+                                }
+                                if (piece[0]=='P'&&piece[1]=='2'&&starty==6) {
+                                    var choice = '';
+                                    while (!(choice=='queen'||choice=='rook'||choice=='knight'||choice=='bishop')) {
+                                        choice = prompt('Enter piece you want to promote to in lowercase. Options are queen, rook, bishop, knight');
+                                        if (choice=='queen') board[endy][endx]='Q2';
+                                        if (choice=='rook') board[endy][endx]='R2';
+                                        if (choice=='knight') board[endy][endx]='N2';
+                                        if (choice=='bishop') board[endy][endx]='B2';
+                                    }
+                                }
                                 setboard(board);
-                                var lastmove = '';
+                                if (piece=='R11') {
+                                    R11movecount+=1;
+                                }
+                                if (piece=='R12') {
+                                    R12movecount+=1;
+                                }
+                                if (piece=='R21') {
+                                    R21movecount+=1;
+                                }
+                                if (piece=='R22') {
+                                    R22movecount+=1;
+                                }
+                                if (piece=='K1') {
+                                    K1movecount+=1;
+                                }
+                                if (piece=='K2') {
+                                    K2movecount+=1; 
+                                }
+                                if (piece[0]=='P'&&(endy==starty+2||endy==starty-2)) {
+                                    lastmove = startx;
+                                }
+                                else {
+                                    lastmove = 100;
+                                }
                                 //def lastmove
                                 return lastmove;
                             /*}
