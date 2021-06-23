@@ -186,6 +186,11 @@ input {
   border-width: 0px;
 }
 
+#sudokuinput {
+  width: 25px;
+  height: 25px;
+}
+
 .solvedbutton {
   display: inline-block;
   padding: 10px 20px;
@@ -217,13 +222,44 @@ input {
   margin: auto;
 }
 
+.chess-board {
+  margin: auto; 
+}
+.dark {
+  background-color: #aaa;
+}
+.light {
+  background-color: #eee;
+}
+.chess-board { border-spacing: 0; border-collapse: collapse; }
+.chess-board th { padding: .5em; font-size: 20px;}
+.chess-board th + th { border-bottom: 1px solid #000; }
+.chess-board th:first-child,
+.chess-board td:last-child { border-right: 1px solid #000; }
+.chess-board tr:last-child td { border-bottom: 1px solid; }
+.chess-board th:empty { border: none; }
+.chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+.chess-board .light { background-color: #eee; }
+.chess-board .dark { background-color: #aaa; }
+
+#dark {
+  background-color: #aaa;
+  width: 30px;
+  font-size: 25px;
+}
+#light {
+  width: 30px;
+  font-size: 25px;
+}
+
 #white {
-  background-color: lightgray;
+  background-color: #eee;
 }
 
 #black {
-  background-color: gray;
+  background-color: #aaa;
 }
+
 
 #moveinput {
   display: none;
