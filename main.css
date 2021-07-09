@@ -165,9 +165,10 @@
 }
 
 
-table { border-collapse: collapse; font-family: Calibri, sans-serif; }
+.sudokutable { border-collapse: collapse; font-family: Calibri, sans-serif; }
 
-colgroup, tbody { border: solid medium; }
+.sudokutable colgroup { border: solid medium; }
+.sudokutable tbody { border: solid medium; }
 
 .sudokutable td { border: solid thin; height: 1.4em; width: 1.4em; text-align: center; padding: 0; }
 
