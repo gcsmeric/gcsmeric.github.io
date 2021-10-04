@@ -265,6 +265,11 @@ input {
   margin: auto;
   text-align: center;
 }
+#AImoveinput {
+  display: none;
+  margin: auto;
+  text-align: center;
+}
 
 .moveinput {
   width: 100px;

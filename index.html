@@ -755,10 +755,100 @@
                         var R21movecount = 0;
                         var R22movecount = 0;
                         var gamestarted = 0;
+                        var vsAIbool = false;
                         function startgame() {
                             if (gamestarted>0) window.location.reload();
                             gamestarted+=1;
                             document.getElementById("moveinput").style.display = 'block';
+                            vsAIbool = false;
+                            
+                            /*var allInputs = document.getElementsByTagName('input');
+                            allInputs.item(162).value='r';
+                            allInputs.item(162+1).value='n';
+                            allInputs.item(162+2).value='b';
+                            allInputs.item(162+3).value='q';
+                            allInputs.item(162+4).value='k';
+                            allInputs.item(162+5).value='b';
+                            allInputs.item(162+6).value='n';
+                            allInputs.item(162+7).value='r';
+                            allInputs.item(162+8).value='p';
+                            allInputs.item(162+9).value='p';
+                            allInputs.item(162+10).value='p';
+                            allInputs.item(162+11).value='p';
+                            allInputs.item(162+12).value='p';
+                            allInputs.item(162+13).value='p';
+                            allInputs.item(162+14).value='p';
+                            allInputs.item(162+15).value='p';
+
+                            allInputs.item(162+48).value='P';
+                            allInputs.item(162+49).value='P';
+                            allInputs.item(162+50).value='P';
+                            allInputs.item(162+51).value='P';
+                            allInputs.item(162+52).value='P';
+                            allInputs.item(162+53).value='P';
+                            allInputs.item(162+54).value='P';
+                            allInputs.item(162+55).value='P';
+                            allInputs.item(162+56).value='R';
+                            allInputs.item(162+57).value='N';
+                            allInputs.item(162+58).value='B';
+                            allInputs.item(162+59).value='Q';
+                            allInputs.item(162+60).value='K';
+                            allInputs.item(162+61).value='B';
+                            allInputs.item(162+62).value='N';
+                            allInputs.item(162+63).value='R';*/
+                            var board = [
+                                ['R21', 'N21', 'B21', 'Q2', 'K2', 'B22', 'N22', 'R22'],
+                                ['P21', 'P22', 'P23', 'P24', 'P25', 'P26', 'P27', 'P28'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+                                ['P11', 'P12', 'P13', 'P14', 'P15', 'P16', 'P17', 'P18'],
+                                ['R11', 'N11', 'B11', 'Q1', 'K1', 'B12', 'N12', 'R12'],
+                            ];
+                            var K1movecount = 0;
+                            var K2movecount = 0;
+                            var R11movecount = 0;
+                            var R12movecount = 0;
+                            var R21movecount = 0;
+                            var R22movecount = 0;
+                            var lastmove = "";
+                            var turn = 0;
+                            
+                            setboard(board);
+                            var inputstart='';
+                            var inputend='';
+                            while (true) {
+                                if (validinput()) {
+                                    var allInputs = document.getElementsByTagName('input');
+                                    inputstart=allInputs.item(226).value;
+                                    inputend=allInputs.item(227).value;
+                                    var convstart = convsquare(inputstart);
+                                    var convend = convsquare(inputend);
+                                    var startx = Math.floor(convstart/10);
+                                    var starty = convstart % 10;
+                                    var endx = Math.floor(convend/10);
+                                    var endy = convend % 10;
+                                    //get x y start end
+
+
+                                    //maybe use while loop here to keep getting input until valid move
+                                    if (isvalidmove(board, startx, starty, endx, endy)) {
+                                        movepiece(board, startx, starty, endx, endy);
+                                        //wipe inputs
+                                    }
+                                    else {
+                                        alert('invalid input squares, please try again')
+                                    }
+                                }
+                            }
+                        }
+
+                        function startgamevsAI() {
+                            if (gamestarted>0) window.location.reload();
+                            gamestarted+=1;
+                            document.getElementById("moveinput").style.display = 'block';
+                            vsAIbool = true;
                             
                             /*var allInputs = document.getElementsByTagName('input');
                             allInputs.item(162).value='r';
@@ -984,6 +1074,7 @@
                                                 if (isvalidmove(board, j, i, x, y)) {
                                                     movepiecenoshow(board2, j, i, x, y);
                                                     if (!(ischeck(board2, turnplayer))) {
+                                                        alert (j+''+ i+''+x+''+y);
                                                         return '';
                                                     }
                                                     board2 = boardog;
@@ -1020,7 +1111,7 @@
                             return outstr;
                         }
 
-                        function submitmove() {
+                        function submitmove(boolAI) {
                             var allInputs = document.getElementsByTagName('input');
                             inputstart=allInputs.item(226).value;
                             inputend=allInputs.item(227).value;
@@ -1069,6 +1160,28 @@
                                     document.getElementById("moveinput").style.display = 'none';
 
                                 }
+                                //if we are playing against AI, find AI move and play it
+                                if (boolAI) {
+                                    loop1:
+                                    for (var i=0; i<8; i++) {
+                                        loop2:
+                                        for (var j=0; j<8; j++) {
+                                            if (board[i][j]!='x' && board[i][j][1]==(turn%2)+1) {
+                                                loop3:
+                                                for (var y=0; y<8; y++) {
+                                                    loop4:
+                                                    for (var x=0; x<8; x++) {
+                                                        if (isvalidmove(board, j, i, x, y)) {
+                                                            movepiece(board, j, i, x, y);
+                                                            break loop1;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    turn+=1;
+                                }
                             }
                             else {
                                 alert('the inputted move is invalid or it is the other player\'s turn, please try again')
@@ -1077,10 +1190,13 @@
 
                     </script>
                     <div id="solvediv">
-                        <button onclick="startgame();" class="solvedbutton">start new game</button>
+                        <button onclick="startgame();" class="solvedbutton">start new player vs. player game </button>
+                    </div>
+                    <div id="solvediv">
+                        <button onclick="startgamevsAI()" class="solvedbutton">start new player vs. AI game</button>
                     </div>
                     <div id="moveinput">Move: <input class='moveinput' maxlength=2 minlength=2 placeholder="start square">-<input class='moveinput' maxlength=2 minlength=2 placeholder="end square">
-                        <button onclick="submitmove();" class="submitbutton">submit</button>
+                        <button onclick="submitmove(vsAIbool);" class="submitbutton">submit</button>
                     </div>
                 </div>
              </div>
