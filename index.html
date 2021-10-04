@@ -969,7 +969,7 @@
                                     board[starty][3]=rook;
                                     board[starty][0]='x';
                                 }
-                                if (piece[0]=='P'&&(endx==startx+1||endx==startx-1)&&lastmove==endx) {
+                                if (piece[0]=='P'&&(endx==startx+1||endx==startx-1)&&lastmove==endx&&(board[starty][endx][1]!=board[endy][endx][1])) {
                                     board[starty][endx]='x';
                                 }
                                 if (piece[0]=='P'&&piece[1]=='1'&&starty==1) {
@@ -1033,6 +1033,19 @@
                                 var piece = board[starty][startx];
                                 board[starty][startx]='x';
                                 board[endy][endx]=piece;
+                                if (piece[0]=='K'&&endx==startx+2) {
+                                    var rook = board[starty][7];
+                                    board[starty][5]=rook;
+                                    board[starty][7]='x';
+                                }
+                                if (piece[0]=='K'&&endx==startx-2) {
+                                    var rook = board[starty][0];
+                                    board[starty][3]=rook;
+                                    board[starty][0]='x';
+                                }
+                                if (piece[0]=='P'&&(endx==startx+1||endx==startx-1)&&lastmove==endx&&(board[starty][endx][1]!=board[endy][endx][1])) {
+                                    board[starty][endx]='x';
+                                }
                             /*}
                             else {
                                 alert('invalid');
@@ -1074,7 +1087,6 @@
                                                 if (isvalidmove(board, j, i, x, y)) {
                                                     movepiecenoshow(board2, j, i, x, y);
                                                     if (!(ischeck(board2, turnplayer))) {
-                                                        alert (j+''+ i+''+x+''+y);
                                                         return '';
                                                     }
                                                     board2 = boardog;
@@ -1109,6 +1121,12 @@
                             if (row=="7") outstr+=1;
                             if (row=="8") outstr+=0;
                             return outstr;
+                        }
+
+                        function getRandomInt(min, max) {
+                            min = Math.ceil(min);
+                            max = Math.floor(max);
+                            return Math.floor(Math.random() * (max - min) + min);
                         }
 
                         function submitmove(boolAI) {
@@ -1162,6 +1180,8 @@
                                 }
                                 //if we are playing against AI, find AI move and play it
                                 if (boolAI) {
+                                    var counterAI = 0;
+                                    var cap = getRandomInt(0, 16);
                                     loop1:
                                     for (var i=0; i<8; i++) {
                                         loop2:
@@ -1172,8 +1192,13 @@
                                                     loop4:
                                                     for (var x=0; x<8; x++) {
                                                         if (isvalidmove(board, j, i, x, y)) {
-                                                            movepiece(board, j, i, x, y);
-                                                            break loop1;
+                                                            if (counterAI < cap) {
+                                                                counterAI+=1;
+                                                            }
+                                                            else {
+                                                                movepiece(board, j, i, x, y);
+                                                                break loop1;
+                                                            }
                                                         }
                                                     }
                                                 }
