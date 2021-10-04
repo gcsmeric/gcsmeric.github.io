@@ -979,7 +979,7 @@
                                             for (var x=0; x<8; x++) {
                                                 if (isvalidmove(board, j, i, x, y)) {
                                                     movepiecenoshow(board2, j, i, x, y);
-                                                    if (!(ischeck(board, turnplayer))) {
+                                                    if (!(ischeck(board2, turnplayer))) {
                                                         return '';
                                                     }
                                                     board2 = boardog;
@@ -1049,7 +1049,9 @@
                             }*/
 
                             //maybe use while loop here to keep getting input until valid move
-                            if (isvalidmove(board, startx, starty, endx, endy) && ((turn%2)+1==plint)) {
+                            var boardcopy = copyboard(board);
+                            movepiecenoshow(boardcopy, startx, starty, endx, endy);
+                            if (isvalidmove(board, startx, starty, endx, endy) && ((turn%2)+1==plint) && !(ischeck(boardcopy, ((turn)%2)+1))) {
                                 lastmove = movepiece(board, startx, starty, endx, endy);
 
                                 //wipe inputs
