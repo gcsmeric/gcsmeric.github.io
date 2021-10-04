@@ -754,7 +754,10 @@
                         var R12movecount = 0;
                         var R21movecount = 0;
                         var R22movecount = 0;
+                        var gamestarted = 0;
                         function startgame() {
+                            if (gamestarted>0) window.location.reload();
+                            gamestarted+=1;
                             document.getElementById("moveinput").style.display = 'block';
                             
                             /*var allInputs = document.getElementsByTagName('input');
@@ -809,6 +812,7 @@
                             var R22movecount = 0;
                             var lastmove = "";
                             var turn = 0;
+                            
                             setboard(board);
                             var inputstart='';
                             var inputend='';
