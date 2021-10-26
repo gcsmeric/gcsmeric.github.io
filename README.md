@@ -1,4 +1,4 @@
 # gcsmeric.github.io
 
-THIS PROJECT INVOLVED THE CREATION OF A PERSONAL WEBSITE IN HTML, CSS AND JAVASCRIPT. IT CONTAINS DEMONSTRATIONS OF PERSONAL CODING PROJECTS, RECONVERTED TO BE IMPLEMENTED
-IN A WEBSITE WITH A UI. 
+This project involved the creation of a personal website in html, css and javascript. It contains demonstrations of personal coding projects, reconverted to be implemented
+in a website with a ui. 
