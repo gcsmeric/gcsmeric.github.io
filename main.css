@@ -327,3 +327,12 @@ input {
 #activepage {
     background-color: #4CAF50;
 }
+
+#extensionimg {
+  width: 200px;
+  height: 200px;
+}
+
+#proj3 {
+  padding-left: 10px;
+}
