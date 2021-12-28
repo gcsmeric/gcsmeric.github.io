@@ -163,24 +163,6 @@
                                     return grid;
                                 }
 
-                                /*function isValid(grid, row, col, x) {
-                                for (var j = 0; j < 9; j++) {
-                                    var sqrow = 3 * Math.floor(row / 3) + Math.floor(j / 3);
-                                    var sqcol = 3 * Math.floor(col / 3) + j % 3;
-                                    if (grid[row][j] == x || grid[j][col] == x || grid[sqrow][sqcol] == x) return false;
-                                    }
-                                return true;
-                                }*/
-                                /*function isValid(board, row, col, k) {
-                                for (let i = 0; i < 9; i++) {
-                                    const m = 3 * Math.floor(row / 3) + Math.floor(i / 3);
-                                    const n = 3 * Math.floor(col / 3) + i % 3;
-                                    if (board[row][i] == k || board[i][col] == k || board[m][n] == k) {
-                                    return false;
-                                    }
-                                }
-                                return true;
-                            }*/
                                 function isValid(grid, row, col, x) {
                                     return (rowvalid(grid, row, col, x) && colvalid(grid, row, col, x) && squarevalid(grid, row, col, x));
                                 }
@@ -428,20 +410,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <!--<table id="chessboard">
-                        
-                      <tbody>
-                        <tr> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  
-                        <tr> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  
-                        <tr> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  
-                        <tr> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> 
-                        <tr> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  
-                        <tr> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  
-                        <tr> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  
-                        <tr> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td>  <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td>  <td class="cell" id="white"><input disabled maxlength="1"></td> <td class="cell" id="black"><input disabled maxlength="1"></td> <td class="cell" id="white"><input disabled maxlength="1"></td> 
-                    </table>-->
-                    <!--https://codepen.io/huffn/pen/qyYoPy-->
-                    <!-- use https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_str_fontcolor so use id demo on squares instead of input-->
+
                     <script>
                         var board = [
                                 ['R2', 'N2', 'B2', 'Q2', 'K2', 'B2', 'N2', 'R2'],
@@ -463,16 +432,6 @@
                                     allInputs.item(i).value = converttostring(board[row][col]);
                                 }
                             }
-
-                            /*function converttostring(str) {
-                                if (str=="x") return "";
-                                var finstr = str.charAt(0);
-                                if (str.charAt(1)=='1') var fstr = finstr.toUpperCase();
-                                else {
-                                    var fstr = finstr.toLowerCase();
-                                }
-                                return fstr;
-                            }*/
 
                             function converttostring(str) {
                                 if (str=="x") return "";
@@ -762,40 +721,6 @@
                             document.getElementById("moveinput").style.display = 'block';
                             vsAIbool = false;
                             
-                            /*var allInputs = document.getElementsByTagName('input');
-                            allInputs.item(162).value='r';
-                            allInputs.item(162+1).value='n';
-                            allInputs.item(162+2).value='b';
-                            allInputs.item(162+3).value='q';
-                            allInputs.item(162+4).value='k';
-                            allInputs.item(162+5).value='b';
-                            allInputs.item(162+6).value='n';
-                            allInputs.item(162+7).value='r';
-                            allInputs.item(162+8).value='p';
-                            allInputs.item(162+9).value='p';
-                            allInputs.item(162+10).value='p';
-                            allInputs.item(162+11).value='p';
-                            allInputs.item(162+12).value='p';
-                            allInputs.item(162+13).value='p';
-                            allInputs.item(162+14).value='p';
-                            allInputs.item(162+15).value='p';
-
-                            allInputs.item(162+48).value='P';
-                            allInputs.item(162+49).value='P';
-                            allInputs.item(162+50).value='P';
-                            allInputs.item(162+51).value='P';
-                            allInputs.item(162+52).value='P';
-                            allInputs.item(162+53).value='P';
-                            allInputs.item(162+54).value='P';
-                            allInputs.item(162+55).value='P';
-                            allInputs.item(162+56).value='R';
-                            allInputs.item(162+57).value='N';
-                            allInputs.item(162+58).value='B';
-                            allInputs.item(162+59).value='Q';
-                            allInputs.item(162+60).value='K';
-                            allInputs.item(162+61).value='B';
-                            allInputs.item(162+62).value='N';
-                            allInputs.item(162+63).value='R';*/
                             var board = [
                                 ['R21', 'N21', 'B21', 'Q2', 'K2', 'B22', 'N22', 'R22'],
                                 ['P21', 'P22', 'P23', 'P24', 'P25', 'P26', 'P27', 'P28'],
@@ -829,13 +754,10 @@
                                     var starty = convstart % 10;
                                     var endx = Math.floor(convend/10);
                                     var endy = convend % 10;
-                                    //get x y start end
 
 
-                                    //maybe use while loop here to keep getting input until valid move
                                     if (isvalidmove(board, startx, starty, endx, endy)) {
                                         movepiece(board, startx, starty, endx, endy);
-                                        //wipe inputs
                                     }
                                     else {
                                         alert('invalid input squares, please try again')
@@ -850,40 +772,6 @@
                             document.getElementById("moveinput").style.display = 'block';
                             vsAIbool = true;
                             
-                            /*var allInputs = document.getElementsByTagName('input');
-                            allInputs.item(162).value='r';
-                            allInputs.item(162+1).value='n';
-                            allInputs.item(162+2).value='b';
-                            allInputs.item(162+3).value='q';
-                            allInputs.item(162+4).value='k';
-                            allInputs.item(162+5).value='b';
-                            allInputs.item(162+6).value='n';
-                            allInputs.item(162+7).value='r';
-                            allInputs.item(162+8).value='p';
-                            allInputs.item(162+9).value='p';
-                            allInputs.item(162+10).value='p';
-                            allInputs.item(162+11).value='p';
-                            allInputs.item(162+12).value='p';
-                            allInputs.item(162+13).value='p';
-                            allInputs.item(162+14).value='p';
-                            allInputs.item(162+15).value='p';
-
-                            allInputs.item(162+48).value='P';
-                            allInputs.item(162+49).value='P';
-                            allInputs.item(162+50).value='P';
-                            allInputs.item(162+51).value='P';
-                            allInputs.item(162+52).value='P';
-                            allInputs.item(162+53).value='P';
-                            allInputs.item(162+54).value='P';
-                            allInputs.item(162+55).value='P';
-                            allInputs.item(162+56).value='R';
-                            allInputs.item(162+57).value='N';
-                            allInputs.item(162+58).value='B';
-                            allInputs.item(162+59).value='Q';
-                            allInputs.item(162+60).value='K';
-                            allInputs.item(162+61).value='B';
-                            allInputs.item(162+62).value='N';
-                            allInputs.item(162+63).value='R';*/
                             var board = [
                                 ['R21', 'N21', 'B21', 'Q2', 'K2', 'B22', 'N22', 'R22'],
                                 ['P21', 'P22', 'P23', 'P24', 'P25', 'P26', 'P27', 'P28'],
@@ -917,13 +805,13 @@
                                     var starty = convstart % 10;
                                     var endx = Math.floor(convend/10);
                                     var endy = convend % 10;
-                                    //get x y start end
 
 
-                                    //maybe use while loop here to keep getting input until valid move
+
+
                                     if (isvalidmove(board, startx, starty, endx, endy)) {
                                         movepiece(board, startx, starty, endx, endy);
-                                        //wipe inputs
+
                                     }
                                     else {
                                         alert('invalid input squares, please try again')
@@ -953,9 +841,6 @@
 
 
                         function movepiece(board, startx, starty, endx, endy) {
-                            /*alert('moving');
-                            //remove valid check here? have it in main function maybe
-                            if (isvalidmove(board, startx, starty, endx, endy)) {*/
                                 var piece = board[starty][startx];
                                 board[starty][startx]='x';
                                 board[endy][endx]=piece;
@@ -1017,19 +902,12 @@
                                 else {
                                     lastmove = 100;
                                 }
-                                //def lastmove
+
                                 return lastmove;
-                            /*}
-                            else {
-                                alert('invalid');
-                                return 'notvalid';
-                            }*/
 
                         }
                         function movepiecenoshow(board, startx, starty, endx, endy) {
-                            /*alert('moving');
-                            //remove valid check here? have it in main function maybe
-                            if (isvalidmove(board, startx, starty, endx, endy)) {*/
+
                                 var piece = board[starty][startx];
                                 board[starty][startx]='x';
                                 board[endy][endx]=piece;
@@ -1046,12 +924,6 @@
                                 if (piece[0]=='P'&&(endx==startx+1||endx==startx-1)&&lastmove==endx&&(board[starty][endx][1]!=board[endy][endx][1])) {
                                     board[starty][endx]='x';
                                 }
-                            /*}
-                            else {
-                                alert('invalid');
-                                return 'notvalid';
-                            }*/
-
                         }
 
                         function ischeck(board, turnplayer) {
@@ -1139,7 +1011,7 @@
                             var starty = convstart % 10;
                             var endx = Math.floor(convend/10);
                             var endy = convend % 10;
-                            //get x y start end
+
 
                             var pc = board[starty][startx];
                             if (pc!="x") {
@@ -1149,25 +1021,11 @@
                                 else if (pl=="2") plint=2;
                             }
 
-                            /*if (isvalidmove(board, startx, starty, endx, endy) && ((turn%2)+1==plint)) {
-                                movepiece(board, startx, starty, endx, endy);
-
-                                //wipe inputs
-                                turn+=1;
-                                allInputs.item(226).value='';
-                                allInputs.item(227).value='';
-                            }
-                            else {
-                                alert('the inputted move is invalid or it is the other player\'s turn, please try again')
-                            }*/
-
-                            //maybe use while loop here to keep getting input until valid move
                             var boardcopy = copyboard(board);
                             movepiecenoshow(boardcopy, startx, starty, endx, endy);
                             if (isvalidmove(board, startx, starty, endx, endy) && ((turn%2)+1==plint) && !(ischeck(boardcopy, ((turn)%2)+1))) {
                                 lastmove = movepiece(board, startx, starty, endx, endy);
 
-                                //wipe inputs
                                 turn+=1;
                                 allInputs.item(226).value='';
                                 allInputs.item(227).value='';
@@ -1178,7 +1036,6 @@
                                     document.getElementById("moveinput").style.display = 'none';
 
                                 }
-                                //if we are playing against AI, find AI move and play it
                                 if (boolAI) {
                                     var counterAI = 0;
                                     var cap = getRandomInt(0, 16);
