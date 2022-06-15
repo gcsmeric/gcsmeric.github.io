@@ -79,7 +79,6 @@
                         <div id="solvediv">
                             <button onclick="solvefinal();" class="solvedbutton">solve</button>
                         </div>
-                        <!--use https://stackoverflow.com/questions/7853130/how-to-change-the-style-of-alert-box-->
                         <table id="outputsudoku" class="sudokutable">
                             <caption>Output Sudoku</caption>
                           <colgroup><col><col><col></colgroup>
@@ -100,6 +99,7 @@
                         </table>
                         <div>
                             <script>
+                               
                                 function getInput3() {
                                     var allInputs = document.getElementsByTagName('input');
                                 var num = allInputs.item(3).value;
@@ -150,6 +150,7 @@
                                 [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                 [0, 0, 0, 0, 0, 0, 0, 0, 0]
                             ]
+                                //fill the sudoku grid
                                 function fillgrid(grid) {
                                     
                                     var allInputs = document.getElementsByTagName('input');
@@ -162,7 +163,7 @@
                                     }
                                     return grid;
                                 }
-
+                                //check whether the grid layout is valid
                                 function isValid(grid, row, col, x) {
                                     return (rowvalid(grid, row, col, x) && colvalid(grid, row, col, x) && squarevalid(grid, row, col, x));
                                 }
