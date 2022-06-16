@@ -100,56 +100,6 @@
                         <div>
                             <script>
                                
-                                function getInput3() {
-                                    var allInputs = document.getElementsByTagName('input');
-                                var num = allInputs.item(3).value;
-                                var row = Math.floor(80/9);
-                                var col = 80 % 9;
-                                var bool = (num=='');
-
-                                alert('fourth input is ' + num + row + col + bool);
-                                }
-
-                                function test() {
-                                    var allInputs = document.getElementsByTagName('input');
-                                    allInputs.item(3).value = 2;
-                                    for (var k=81; k<81*2; k++) {
-                                        allInputs.item(k).value = 2;
-                                    }
-                                }
-
-                                function test3() {
-                                    var grid = [
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0]
-                            ];
-                                    fillgrid(grid);
-                                    var bool = grid[3][0]==0;
-                                    alert('first input is ' + grid[0][0]);
-                                    alert('fourth input is ' + grid[0][3]);
-                                    alert(bool);
-                                    grid[0][3]=4;
-                                    alert('fourth input is ' + grid[0][3]);
-                                }
-
-                                var grid = [
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0]
-                            ]
                                 //fill the sudoku grid
                                 function fillgrid(grid) {
                                     
@@ -167,7 +117,7 @@
                                 function isValid(grid, row, col, x) {
                                     return (rowvalid(grid, row, col, x) && colvalid(grid, row, col, x) && squarevalid(grid, row, col, x));
                                 }
-
+                                //check whether a row is valid
                                 function rowvalid(grid, row, col, x) {
                                     for (var i=0; i<9; i++) {
                                         if (i == col) {
@@ -179,6 +129,7 @@
                                     }
                                     return true;
                                 }
+                                //check whether a column is valid
                                 function colvalid(grid, row, col, x) {
                                     for (var i=0; i<9; i++) {
                                         if (i == row) {
@@ -190,6 +141,7 @@
                                     }
                                     return true;
                                 }
+                                //check whether a square is valid
                                 function squarevalid(grid, row, col, x) {
                                     var sqxcoord = Math.floor(col/3)+1;
                                     var sqycoord = Math.floor(row/3)+1;
@@ -211,7 +163,7 @@
                                     }
                                     return true;
                                 }
-
+                                //solve the sudoku based off inputted starting grid
                                 function solve(grid) {
                                     for (var row = 0; row <9; row++) {
                                         for (var col = 0; col < 9; col++) {
@@ -230,7 +182,7 @@
                                     }
                                     return true;
                                 }
-
+                                //solve grid after checking validity of starting user input
                                 function solvefinal() {
                                     var grid = [
                                 [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -243,6 +195,7 @@
                                 [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                 [0, 0, 0, 0, 0, 0, 0, 0, 0]
                                 ];
+                                    //initialize the grid based off user input
                                     fillgrid(grid);
                                     //check if initial input is solvable
                                     for (var a=0;a<9;a++) {
@@ -261,13 +214,6 @@
                                         var row = Math.floor((k-81)/9);
                                         var col = (k-81) % 9;
                                         allOutputs.item(k).value = grid[row][col];
-                                    }
-                                }
-
-                                function test2() {
-                                    var allOutputs = document.getElementsByTagName('input');
-                                    for (var k=81; k<81*2; k++) {
-                                        allOutputs.item(k).value = k;
                                     }
                                 }
                                 
