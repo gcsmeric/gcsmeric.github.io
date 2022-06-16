@@ -359,6 +359,7 @@
                     </table>
 
                     <script>
+                        //initialize the chess board
                         var board = [
                                 ['R2', 'N2', 'B2', 'Q2', 'K2', 'B2', 'N2', 'R2'],
                                 ['P2', 'P2', 'P2', 'P2', 'P2', 'P2', 'P2', 'P2'],
@@ -369,7 +370,7 @@
                                 ['P1', 'P1', 'P1', 'P1', 'P1', 'P1', 'P1', 'P1'],
                                 ['R1', 'N1', 'B1', 'Q1', 'K1', 'B1', 'N1', 'R1'],
                             ];
-
+                            //set the board square values to starting piece positions
                             function setboard(board) {
                                 var allInputs = document.getElementsByTagName('input');
                                 for (var i = 162; i<162+64; i++) {
@@ -379,7 +380,7 @@
                                     allInputs.item(i).value = converttostring(board[row][col]);
                                 }
                             }
-
+                            //convert board piece values to String characters representing pieces to be displayed to user
                             function converttostring(str) {
                                 if (str=="x") return "";
                                 var finstr = str.charAt(0);
@@ -403,7 +404,9 @@
                                 return string;
                             }
 
+                            //validate user's inputted move
                             function isvalidmove(board, startx, starty, endx, endy) {
+                                //fetch the piece the user is attempting to move
                                 var piece = board[starty][startx];
                                 if (piece == "x") {
                                     alert("there is no movable piece on this square");
@@ -412,6 +415,7 @@
                                 var player = piece[1];
                                 var id = piece[2];
                                 if (board[endy][endx]!='x' && board[endy][endx][1]==player) return false;
+                                //if moved piece is pawn, check the move against valid available pawn moves for this pawn, handling en passant
                                 if (piece[0]=="P") {
                                     if (player=="1" && starty==6) {
                                         if (startx==endx) {
@@ -483,6 +487,7 @@
                                     }
                                     else return false;
                                 }
+                                //if moved piece is rook, check the move against valid available pawn moves for this rook
                                 else if (piece[0]=="R") {
                                                                         
                                     if (startx==endx && starty==endy) {
@@ -515,6 +520,7 @@
                                     else return false;
                                     return true; 
                                 }
+                                //if moved piece is knight, check the move against valid available pawn moves for this knight
                                 else if (piece[0]=="N") {
                                     if (board[endy][endx]=='x' || board[endy][endx][1]!=player) {
                                         if (endx==startx+2) {
@@ -535,6 +541,7 @@
                                         }
                                     }
                                 }
+                                //if moved piece is bishop, check the move against valid available pawn moves for this bishop
                                 else if (piece[0]=="B") {
                                     if (startx==endx && starty==endy) {
                                         return false;
@@ -569,6 +576,7 @@
                                     else return false;
                                     return true; 
                                 }
+                                //if moved piece is queen, check the move against valid available pawn moves for this queen
                                 else if (piece[0]=="Q") {
                                     if (startx==endx && starty==endy) {
                                         return false;
@@ -627,6 +635,7 @@
                                     else return false;
                                     return true; 
                                 }
+                                //if moved piece is king, check the move against valid available pawn moves for this king
                                 else if (piece[0]=="K") {
                                     if (endy==starty+1) {
                                         if (endx==startx+1 || endx==startx || endx==startx-1) return true;
@@ -651,7 +660,8 @@
                                     return false;
                                 }
                             }
-
+                        
+                        //initialize game variables
                         var turn = 0;
                         var lastmove = '';
                         var K1movecount = 0;
@@ -662,12 +672,14 @@
                         var R22movecount = 0;
                         var gamestarted = 0;
                         var vsAIbool = false;
+                       
+                        //start the game
                         function startgame() {
                             if (gamestarted>0) window.location.reload();
                             gamestarted+=1;
                             document.getElementById("moveinput").style.display = 'block';
                             vsAIbool = false;
-                            
+                            //initialize board
                             var board = [
                                 ['R21', 'N21', 'B21', 'Q2', 'K2', 'B22', 'N22', 'R22'],
                                 ['P21', 'P22', 'P23', 'P24', 'P25', 'P26', 'P27', 'P28'],
@@ -678,6 +690,7 @@
                                 ['P11', 'P12', 'P13', 'P14', 'P15', 'P16', 'P17', 'P18'],
                                 ['R11', 'N11', 'B11', 'Q1', 'K1', 'B12', 'N12', 'R12'],
                             ];
+                            //initialize game variables
                             var K1movecount = 0;
                             var K2movecount = 0;
                             var R11movecount = 0;
@@ -687,14 +700,18 @@
                             var lastmove = "";
                             var turn = 0;
                             
+                            //set the board (updating UI board based off initialized board array)
                             setboard(board);
                             var inputstart='';
                             var inputend='';
+                            //iterate until game end
                             while (true) {
+                                //validate then handle user input
                                 if (validinput()) {
                                     var allInputs = document.getElementsByTagName('input');
                                     inputstart=allInputs.item(226).value;
                                     inputend=allInputs.item(227).value;
+                                    //convert user inputs into the start and end coordinates of the piece's movements
                                     var convstart = convsquare(inputstart);
                                     var convend = convsquare(inputend);
                                     var startx = Math.floor(convstart/10);
@@ -702,7 +719,7 @@
                                     var endx = Math.floor(convend/10);
                                     var endy = convend % 10;
 
-
+                                    //validates the user-inputted move against chess rules and then executes it if valid
                                     if (isvalidmove(board, startx, starty, endx, endy)) {
                                         movepiece(board, startx, starty, endx, endy);
                                     }
@@ -712,13 +729,15 @@
                                 }
                             }
                         }
-
+                        
+                        //start game against randomization-based AI chess program
                         function startgamevsAI() {
                             if (gamestarted>0) window.location.reload();
                             gamestarted+=1;
                             document.getElementById("moveinput").style.display = 'block';
                             vsAIbool = true;
                             
+                            //initialize the board
                             var board = [
                                 ['R21', 'N21', 'B21', 'Q2', 'K2', 'B22', 'N22', 'R22'],
                                 ['P21', 'P22', 'P23', 'P24', 'P25', 'P26', 'P27', 'P28'],
@@ -729,6 +748,7 @@
                                 ['P11', 'P12', 'P13', 'P14', 'P15', 'P16', 'P17', 'P18'],
                                 ['R11', 'N11', 'B11', 'Q1', 'K1', 'B12', 'N12', 'R12'],
                             ];
+                            //initialize game variables
                             var K1movecount = 0;
                             var K2movecount = 0;
                             var R11movecount = 0;
@@ -738,14 +758,19 @@
                             var lastmove = "";
                             var turn = 0;
                             
+                            //set the board UI based off previously initialized board array
                             setboard(board);
                             var inputstart='';
                             var inputend='';
+                            //iterate until game end
                             while (true) {
+                                //validate then handle user input
                                 if (validinput()) {
                                     var allInputs = document.getElementsByTagName('input');
+                                    //retrieve user move input
                                     inputstart=allInputs.item(226).value;
                                     inputend=allInputs.item(227).value;
+                                    //convert user-inputted move into start coordinates and end coordinates for the piece movement
                                     var convstart = convsquare(inputstart);
                                     var convend = convsquare(inputend);
                                     var startx = Math.floor(convstart/10);
@@ -755,7 +780,7 @@
 
 
 
-
+                                    //validate then handle user-inputted move
                                     if (isvalidmove(board, startx, starty, endx, endy)) {
                                         movepiece(board, startx, starty, endx, endy);
 
@@ -766,7 +791,8 @@
                                 }
                             }
                         }
-
+                        
+                        //create shallow board copy used to explore move lines without modifying original board position
                         function copyboard(board) {
                             var board2 = [
                                 ['R21', 'N21', 'B21', 'Q2', 'K2', 'B22', 'N22', 'R22'],
@@ -786,16 +812,18 @@
                             return board2;
                         }
 
-
+                        //move a piece on the board given the coordinates at which the piece is initially located and it's destination coordinates
                         function movepiece(board, startx, starty, endx, endy) {
                                 var piece = board[starty][startx];
                                 board[starty][startx]='x';
                                 board[endy][endx]=piece;
+                                //handle castling
                                 if (piece[0]=='K'&&endx==startx+2) {
                                     var rook = board[starty][7];
                                     board[starty][5]=rook;
                                     board[starty][7]='x';
                                 }
+                                //handle castling
                                 if (piece[0]=='K'&&endx==startx-2) {
                                     var rook = board[starty][0];
                                     board[starty][3]=rook;
@@ -804,6 +832,7 @@
                                 if (piece[0]=='P'&&(endx==startx+1||endx==startx-1)&&lastmove==endx&&(board[starty][endx][1]!=board[endy][endx][1])) {
                                     board[starty][endx]='x';
                                 }
+                                //handle pawn promotions
                                 if (piece[0]=='P'&&piece[1]=='1'&&starty==1) {
                                     var choice = '';
                                     while (!(choice=='queen'||choice=='rook'||choice=='knight'||choice=='bishop')) {
@@ -814,6 +843,7 @@
                                         if (choice=='bishop') board[endy][endx]='B1';
                                     }
                                 }
+                                //handle pawn promotions
                                 if (piece[0]=='P'&&piece[1]=='2'&&starty==6) {
                                     var choice = '';
                                     while (!(choice=='queen'||choice=='rook'||choice=='knight'||choice=='bishop')) {
@@ -824,6 +854,7 @@
                                         if (choice=='bishop') board[endy][endx]='B2';
                                     }
                                 }
+                                //set the board and update piece movecounts (used to determine whether player can castle)
                                 setboard(board);
                                 if (piece=='R11') {
                                     R11movecount+=1;
@@ -843,16 +874,18 @@
                                 if (piece=='K2') {
                                     K2movecount+=1; 
                                 }
+                                //update last move (used in case of en passant opportunity for opponent next turn)
                                 if (piece[0]=='P'&&(endy==starty+2||endy==starty-2)) {
                                     lastmove = startx;
                                 }
                                 else {
                                     lastmove = 100;
                                 }
-
+         
                                 return lastmove;
 
                         }
+                        //move piece without reflecting the move on the board UI, used for calculating move sequences to validate check/stalemates
                         function movepiecenoshow(board, startx, starty, endx, endy) {
 
                                 var piece = board[starty][startx];
@@ -872,10 +905,12 @@
                                     board[starty][endx]='x';
                                 }
                         }
-
+                        
+                        //evaluates whether a given player is receiving a check in a given position
                         function ischeck(board, turnplayer) {
                             var kingx = 0;
                             var kingy = 0;
+                            //find the player's king's coordinates
                             for (var i=0; i<8; i++) {
                                 for (var j=0; j<8; j++) {
                                     if (board[i][j][0]=='K' && board[i][j][1]==turnplayer) {
@@ -884,6 +919,7 @@
                                     }
                                 }
                             }
+                            //evaluate all opponent valid moves to check if any cover the king's coordinates and therefore cause a check
                             for (var i=0; i<8; i++) {
                                 for (var j=0; j<8; j++) {
                                     if (board[i][j]!='x' && board[i][j][1]!=turnplayer) {
@@ -895,17 +931,24 @@
                             }
                             return false;
                         }
+                       
+                        //evaluate whether a given player is checkmated or stalemated in a given position
                         function ismate(board, turnplayer) {
+                            //create board copies
                             var board2 = copyboard(board);
                             var boardog = copyboard(board);
+                            //iterate through all board coordinates
                             for (var i=0; i<8; i++) {
                                 for (var j=0; j<8; j++) {
+                                    //check if the square is non-empty and the piece occupying it belongs to the appropriate player
                                     if (board[i][j]!='x' && board[i][j][1]==turnplayer) {
+                                        //iterate through squares to find the valid moves for this piece, checking if any lead to a position in which there is no longer a check
                                         for (var y=0; y<8; y++) {
                                             for (var x=0; x<8; x++) {
                                                 if (isvalidmove(board, j, i, x, y)) {
                                                     movepiecenoshow(board2, j, i, x, y);
                                                     if (!(ischeck(board2, turnplayer))) {
+                                                        //in case of a possible move which leads to there not being a check in the position, return neither checkmate nor stalemate
                                                         return '';
                                                     }
                                                     board2 = boardog;
@@ -915,39 +958,42 @@
                                     }
                                 }
                             }
+                            //in case of no valid moves, return stalemate if the player is not currently receiving a check and return checkmate otherwise
                             if (ischeck(board, turnplayer)) return 'checkmate';
                             else return 'stalemate';
                         }
 
+                       //convert a user-inputted square into an integer output
                         function convsquare(str) {
                             var col = str[0];
                             var row = str[1];
-                            var outstr=0;
-                            if (col=="a") outstr+=0;
-                            if (col=="b") outstr+=10;
-                            if (col=="c") outstr+=20;
-                            if (col=="d") outstr+=30;
-                            if (col=="e") outstr+=40;
-                            if (col=="f") outstr+=50;
-                            if (col=="g") outstr+=60;
-                            if (col=="h") outstr+=70;
-                            if (row=="1") outstr+=7;
-                            if (row=="2") outstr+=6;
-                            if (row=="3") outstr+=5;
-                            if (row=="4") outstr+=4;
-                            if (row=="5") outstr+=3;
-                            if (row=="6") outstr+=2;
-                            if (row=="7") outstr+=1;
-                            if (row=="8") outstr+=0;
-                            return outstr;
+                            var out=0;
+                            if (col=="a") out+=0;
+                            if (col=="b") out+=10;
+                            if (col=="c") out+=20;
+                            if (col=="d") out+=30;
+                            if (col=="e") out+=40;
+                            if (col=="f") out+=50;
+                            if (col=="g") out+=60;
+                            if (col=="h") out+=70;
+                            if (row=="1") out+=7;
+                            if (row=="2") out+=6;
+                            if (row=="3") out+=5;
+                            if (row=="4") out+=4;
+                            if (row=="5") out+=3;
+                            if (row=="6") out+=2;
+                            if (row=="7") out+=1;
+                            if (row=="8") out+=0;
+                            return out;
                         }
-
+                        //random int generator between a given min and max
                         function getRandomInt(min, max) {
                             min = Math.ceil(min);
                             max = Math.floor(max);
                             return Math.floor(Math.random() * (max - min) + min);
                         }
-
+                        
+                        //submit a user-inputted  or AI move for evaluation
                         function submitmove(boolAI) {
                             var allInputs = document.getElementsByTagName('input');
                             inputstart=allInputs.item(226).value;
@@ -983,6 +1029,7 @@
                                     document.getElementById("moveinput").style.display = 'none';
 
                                 }
+                                //in case of 'play vs AI' setting selected, generate a move to play against the user
                                 if (boolAI) {
                                     var counterAI = 0;
                                     var cap = getRandomInt(0, 16);
