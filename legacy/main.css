@@ -323,3 +323,18 @@ input {
 #activepage {
     background-color: #4CAF50;
 }
+
+.legacy-back {
+  position: fixed;
+  left: 12px;
+  top: 50%;
+  z-index: 999;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-50%);
+}

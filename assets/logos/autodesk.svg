@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="104" height="28" viewBox="0 0 104 28" role="img" aria-labelledby="title">
+  <title>Autodesk</title>
+  <rect width="104" height="28" rx="10" fill="#ffffff"/>
+  <rect x="0.75" y="0.75" width="102.5" height="26.5" rx="9.25" fill="none" stroke="#702963" stroke-opacity=".28"/>
+  <path d="M12 19.5 16.8 8.5h2.7l4.8 11h-2.8l-1-2.4h-4.7l-1 2.4Zm4.6-4.5h3.1L18.2 11z" fill="#702963"/>
+  <text x="30" y="18" fill="#181518" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" letter-spacing=".06em">AUTODESK</text>
+</svg>
